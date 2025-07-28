@@ -1,4 +1,4 @@
-# RealSense RTAB-Map VIO Demo
+# RealSense RTAB-Map VIO 
 
 This project showcases a complete implementation of visual-inertial SLAM using the Intel RealSense D455 and RTAB-Map within the ROS environment.
 
@@ -39,9 +39,9 @@ This project was implemented on a mobile robotic system for testing visual-inert
 
 ### Test Environment
 
-- Mapping conducted in **structured indoor spaces**
-- Included **hallways** and **rooms with furniture and varying layout**
-- Designed to test **loop closures**, **graph optimization**, and **keypoint robustness**
+- Mapping conducted in structured indoor spaces
+- Included hallways and rooms with furniture and varying layout
+- Designed to test loop closures, graph optimization, and keypoint robustness
 
 <table align="center">
   <tr>
@@ -55,3 +55,29 @@ This project was implemented on a mobile robotic system for testing visual-inert
     </td>
   </tr>
 </table>
+
+## Core SLAM Processes
+
+The SLAM system uses RTAB-Map to incrementally build 3D maps while tracking the robot's position over time. It combines visual odometry, loop closure, and graph optimization to maintain an accurate and drift-corrected trajectory. As the robot explores, the system detects previously visited locations and refines the map for global consistency.
+
+##  Loop Closure Detection
+
+Loop closures were automatically detected by comparing current visual data with previously seen scenes. When a match was found, RTAB-Map estimated the correction and updated the pose graph to align the trajectory. This helped reduce drift and improve map consistency during longer sessions.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="images/Loop Closure.gif" width="300"/><br/>
+      <em>Loop Closure Detection</em>
+    </td>
+    <td align="center">
+      <img src="images/Feature Matching.png" width="500"/><br/>
+      <em>Feature Matching</em>
+      <img src="images/3D Frame.png" width="445"/><br/>
+      <em>Camera odometry frame and 3D point cloud projection </em>
+    </td>
+  </tr>
+</table>
+
+In the example above, a loop closure was detected between Frame 135 and Frame 87, applying a correction of Δx = -0.0117 m and Δθ = -0.43° to the trajectory.
+
