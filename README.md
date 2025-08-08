@@ -81,3 +81,26 @@ Loop closures were automatically detected by comparing current visual data with 
 
 In the example above, a loop closure was detected between Frame 135 and Frame 87, applying a correction of Δx = -0.0117 m and Δθ = -0.43° to the trajectory.
 
+## Generated 3D Maps
+
+Below are two examples of 3D point cloud maps generated using RTAB-Map with the Intel RealSense D455. These maps were built in real time while maintaining a drift-corrected trajectory through loop closure and graph optimization.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="images/Evironment_1_Map.PNG" width="800"/><br/>
+      <em>Structured Hallway</em>
+    </td>
+    <td align="center">
+      <img src="images/Evironment 2 Map.PNG" width="800"/><br/>
+      <em>Lab Space with Dense Obstacles</em>
+    </td>
+  </tr>
+</table>
+
+- **Lab Environment** – Captured in a confined indoor lab with dense obstacles such as tables and chairs. The map clearly shows the workspace layout, with a well-defined trajectory loop in the center.
+- **Corridor Environment** – Captured along a long structured hallway with multiple turns. The map maintains wall alignment and straight trajectories despite extended travel distance.
+
+These results highlight the system’s ability to adapt to both **dense, cluttered spaces** and **open, structured layouts**, producing consistent maps in varied indoor settings.
+
+
