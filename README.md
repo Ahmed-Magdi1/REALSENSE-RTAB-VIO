@@ -92,7 +92,7 @@ Below are two examples of 3D point cloud maps generated using RTAB-Map with the 
       <em>Structured Hallway</em>
     </td>
     <td align="center">
-      <img src="images/Evironment 2 Map.PNG" width="800"/><br/>
+      <img src="images/Evironment_2_Map.PNG" width="800"/><br/>
       <em>Lab Space with Dense Obstacles</em>
     </td>
   </tr>
