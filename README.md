@@ -93,7 +93,7 @@ This process removes redundant poses, merges overlapping data, and ensures the t
       <em>Pose Graph Before Optimization</em>
     </td>
     <td align="center">
-      <img src="images/Last Frame Graph.png" width="200"/><br/>
+      <img src="images/Last Frame Graph.png" width="139"/><br/>
       <em>Pose Graph After Optimization</em>
     </td>
   </tr>
