@@ -81,6 +81,53 @@ Loop closures were automatically detected by comparing current visual data with 
 
 In the example above, a loop closure was detected between Frame 135 and Frame 87, applying a correction of Δx = -0.0117 m and Δθ = -0.43° to the trajectory.
 
+## Graph Optimization
+
+After detecting loop closures, RTAB-Map applies graph optimization to refine the map and reduce accumulated drift.  
+This process removes redundant poses, merges overlapping data, and ensures the trajectory remains globally consistent.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="images/First Frame Graph.png" width="200"/><br/>
+      <em>Pose Graph Before Optimization</em>
+    </td>
+    <td align="center">
+      <img src="images/Last Frame Graph.png" width="200"/><br/>
+      <em>Pose Graph After Optimization</em>
+    </td>
+  </tr>
+</table>
+
+The global graph was reduced from 445 nodes to 407 nodes (an 8.5% reduction).  
+This optimization improved the alignment of the robot’s trajectory, removing drift and enhancing overall map accuracy.
+
+---
+
+## Feature Detection: ORB vs. SIFT
+
+Feature detection was tested with both ORB and SIFT to evaluate the trade-off between speed and accuracy.  
+ORB is fast and lightweight, making it suitable for real-time operation, while SIFT is more computationally demanding but detects a larger number of robust features, especially in low-texture areas.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="images/ORB Features.png" width="500"/><br/>
+      <em>ORB Feature Detection</em>
+    </td>
+    <td align="center">
+      <img src="images/SIFT Features.png" width="500"/><br/>
+      <em>SIFT Feature Detection</em>
+    </td>
+  </tr>
+</table>
+
+- **ORB** – Efficient, real-time performance but fewer detected keypoints.  
+- **SIFT** – Higher accuracy in challenging environments but slower processing.  
+
+This comparison highlights the balance between real-time operation and feature richness in SLAM implementations.
+
+
 ## Generated 3D Maps
 
 Below are two examples of 3D point cloud maps generated using RTAB-Map with the Intel RealSense D455. These maps were built in real time while maintaining a drift-corrected trajectory through loop closure and graph optimization.
